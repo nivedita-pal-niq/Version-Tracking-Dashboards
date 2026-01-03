@@ -628,3 +628,140 @@
   description: "Request rate (hits per second) for each servlet endpoint, grouped by resource_name, for recommendationservice in the dev environment. This shows traffic patterns and load distribution across endpoints over time."
 }
 ```
+![Dashboard](images/version32.png)
+```
+{
+  expr: [
+    `avg(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {resource_name}`
+  ],
+  name: "Average Servlet Request Latency by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Average servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify endpoints with higher average response times."
+}
+```
+```
+{
+  expr: [
+    `p50(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {resource_name}`
+  ],
+  name: "Median Servlet Request Latency (p50) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p50) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+```
+```
+{
+  expr: [
+    `p75(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {resource_name}`
+  ],
+  name: "Median Servlet Request Latency (p75) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p75) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+```
+```
+{
+  expr: [
+    `p90(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {resource_name}`
+  ],
+  name: "Median Servlet Request Latency (p90) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p90) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+```
+```
+{
+  expr: [
+    `p95(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {resource_name}`
+  ],
+  name: "Median Servlet Request Latency (p95) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p95) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+```
+```
+{
+  expr: [
+    `p99(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {resource_name}`
+  ],
+  name: "Median Servlet Request Latency (p99) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p99) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+```
+```
+{
+  expr: [
+    `p99.9(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {resource_name}`
+  ],
+  name: "Median Servlet Request Latency (p99.9) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p99.9) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+```
+```
+{
+  expr: [
+    `max(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {resource_name}`
+  ],
+  name: "Median Servlet Request Latency (max) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (max) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+```
