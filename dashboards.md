@@ -1,3 +1,4 @@
+# service summary
 ![Dashboard](images/version1.png)
  ```{
   expr: [
@@ -500,5 +501,130 @@
   unit: "s",
   type: "Lineplot",
   description: "Line plot showing the maximum observed servlet request latency grouped by service version for the recommendationservice in the dev environment. This graph highlights worst-case latency spikes per deployment version and helps identify versions that introduce severe performance regressions or outliers."
+}
+```
+# endpoints
+![Dashboard](images/version26.png)
+```
+{
+  expr: [
+    `top(
+      sum:trace:servlet:request:hits{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      } by {resource_name},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Top Servlet Endpoints by Request Volume",
+  unit: "hits",
+  type: "Bar",
+  description: "Bar chart showing the top 5 servlet request endpoints by total request count, grouped by resource_name, for the recommendationservice in the dev environment. This visualization highlights the most frequently accessed endpoints and helps identify traffic hotspots and dominant API routes."
+}
+```
+![Dashboard](images/version27.png)
+```
+{
+  expr: [
+    `top(
+      sum:trace:servlet:request:hits{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      } by {resource_name},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Top 10 Servlet Endpoints by Request Volume",
+  unit: "hits",
+  type: "Bar",
+  description: "Bar chart displaying the top 10 servlet endpoints ranked by average request volume, grouped by resource_name, for the recommendationservice in the dev environment. This graph helps identify the most frequently accessed APIs and understand traffic distribution across endpoints."
+}
+```
+![Dashboard](images/version28.png)
+```
+{
+  expr: [
+    `sum(
+      trace:servlet:request:hits{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {resource_name}`
+  ],
+  name: "Servlet Request Hits by Endpoint",
+  unit: "hits",
+  type: "Bar",
+  description: "Bar chart showing the total number of servlet requests grouped by resource_name for the recommendationservice in the dev environment. This visualization provides a complete view of traffic distribution across all endpoints without limiting to top-N results."
+}
+```
+![Dashboard](images/version29.png)
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request:hits{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name}.as_rate(),
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Top 5 Endpoint Request Rate (hits/sec)",
+  unit: "hits/s",
+  type: "Lineplot",
+  description: "Line plot showing the request rate (hits per second) for the top 5 servlet endpoints, grouped by resource_name and ranked by mean traffic, for recommendationservice in the dev environment. This visualization helps identify the most actively used endpoints over time."
+}
+```
+![Dashboard](images/version30.png)
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request:hits{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name}.as_rate(),
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Top 10 Endpoint Request Rate (hits/sec)",
+  unit: "hits/s",
+  type: "Lineplot",
+  description: "Line plot showing the request rate (hits per second) for the top 10 servlet endpoints, grouped by resource_name and ranked by mean traffic, for recommendationservice in the dev environment. This helps identify the most frequently accessed endpoints and observe traffic trends over time."
+}
+```
+![Dashboard](images/version31.png)
+```
+{
+  expr: [
+    `sum(
+      trace:servlet:request:hits{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {resource_name}.as_rate()`
+  ],
+  name: "Request Rate by Endpoint",
+  unit: "hits/s",
+  type: "Lineplot",
+  description: "Request rate (hits per second) for each servlet endpoint, grouped by resource_name, for recommendationservice in the dev environment. This shows traffic patterns and load distribution across endpoints over time."
 }
 ```
