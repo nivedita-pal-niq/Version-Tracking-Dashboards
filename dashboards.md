@@ -632,6 +632,373 @@
 ```
 {
   expr: [
+    `top(
+      avg(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Average Servlet Request Latency by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Average servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify endpoints with higher average response times."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p50(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (p50) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p50) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+
+```
+```
+{
+  expr: [
+    `top(
+      p75(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (p75) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p75) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p90(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (p90) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p90) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+
+```
+```
+{
+  expr: [
+    `top(
+      p95(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (p95) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p95) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+
+```
+```
+{
+  {
+  expr: [
+    `top(
+      p99(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (p99) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p99) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+
+```
+```
+{
+  expr: [
+    `top(
+      p99.9(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (p99.9) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p99.9) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+
+```
+```
+{
+  expr: [
+    `top(
+      max(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (max) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (max) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+```
+![Dashboard](images/version33.png)
+```
+{
+  expr: [
+    `top(
+      avg(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Average Servlet Request Latency by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Average servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 10 endpoints ranked by mean latency, helping identify endpoints with higher average response times."
+}
+
+```
+```
+{
+  expr: [
+    `top(
+      p50(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (p50) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p50) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 10 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+
+```
+```
+{
+  expr: [
+    `top(
+      p75(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (p75) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p75) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 10 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+
+```
+```
+{
+  expr: [
+    `top(
+      p90(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (p90) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p90) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 10 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+
+```
+```
+{
+  {
+  expr: [
+    `top(
+      p95(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (p95) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p95) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 10 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+
+```
+```
+{
+  expr: [
+    `top(
+      p99(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (p99) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p99) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 10 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+
+```
+```
+{
+  expr: [
+    `top(
+      p99.9(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (p99.9) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (p99.9) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 10 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+
+```
+```
+{
+  expr: [
+    `top(
+      max(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Median Servlet Request Latency (max) by Endpoint",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Median (max) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 10 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+}
+```
+```
+{
+  expr: [
     `avg(
       trace:servlet:request{
         env:dev,
@@ -643,7 +1010,7 @@
   name: "Average Servlet Request Latency by Endpoint",
   unit: "ms",
   type: "Lineplot",
-  description: "Average servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify endpoints with higher average response times."
+  description: "Line plot showing the average servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Each line represents an endpoint, allowing comparison of average response times over the selected time range."
 }
 ```
 ```
@@ -657,10 +1024,10 @@
       }
     ) by {resource_name}`
   ],
-  name: "Median Servlet Request Latency (p50) by Endpoint",
+  name: "Average Servlet Request Latency(p50) by Endpoint",
   unit: "ms",
   type: "Lineplot",
-  description: "Median (p50) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+  description: "Line plot showing the average servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Each line represents an endpoint, allowing comparison of average response times over the selected time range."
 }
 ```
 ```
@@ -674,10 +1041,10 @@
       }
     ) by {resource_name}`
   ],
-  name: "Median Servlet Request Latency (p75) by Endpoint",
+  name: "Average Servlet Request Latency(p75) by Endpoint",
   unit: "ms",
   type: "Lineplot",
-  description: "Median (p75) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+  description: "Line plot showing the average servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Each line represents an endpoint, allowing comparison of average response times over the selected time range."
 }
 ```
 ```
@@ -691,10 +1058,10 @@
       }
     ) by {resource_name}`
   ],
-  name: "Median Servlet Request Latency (p90) by Endpoint",
+  name: "Average Servlet Request Latency(p90) by Endpoint",
   unit: "ms",
   type: "Lineplot",
-  description: "Median (p90) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+  description: "Line plot showing the average servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Each line represents an endpoint, allowing comparison of average response times over the selected time range."
 }
 ```
 ```
@@ -708,10 +1075,10 @@
       }
     ) by {resource_name}`
   ],
-  name: "Median Servlet Request Latency (p95) by Endpoint",
+  name: "Average Servlet Request Latency(p95) by Endpoint",
   unit: "ms",
   type: "Lineplot",
-  description: "Median (p95) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+  description: "Line plot showing the average servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Each line represents an endpoint, allowing comparison of average response times over the selected time range."
 }
 ```
 ```
@@ -725,10 +1092,10 @@
       }
     ) by {resource_name}`
   ],
-  name: "Median Servlet Request Latency (p99) by Endpoint",
+  name: "Average Servlet Request Latency(p99) by Endpoint",
   unit: "ms",
   type: "Lineplot",
-  description: "Median (p99) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+  description: "Line plot showing the average servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Each line represents an endpoint, allowing comparison of average response times over the selected time range."
 }
 ```
 ```
@@ -742,10 +1109,10 @@
       }
     ) by {resource_name}`
   ],
-  name: "Median Servlet Request Latency (p99.9) by Endpoint",
+  name: "Average Servlet Request Latency(p99.9) by Endpoint",
   unit: "ms",
   type: "Lineplot",
-  description: "Median (p99.9) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+  description: "Line plot showing the average servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Each line represents an endpoint, allowing comparison of average response times over the selected time range."
 }
 ```
 ```
@@ -759,9 +1126,1190 @@
       }
     ) by {resource_name}`
   ],
-  name: "Median Servlet Request Latency (max) by Endpoint",
+  name: "Average Servlet Request Latency(max) by Endpoint",
   unit: "ms",
   type: "Lineplot",
-  description: "Median (max) servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean latency, helping identify which endpoints typically respond slower under normal conditions."
+  description: "Line plot showing the average servlet request latency grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Each line represents an endpoint, allowing comparison of average response times over the selected time range."
 }
 ```
+![Dashboard](images/version34.png)
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request.errors{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Errors by Endpoint (Top 5)",
+  unit: "errors",
+  type: "Bar",
+  description: "Sum of servlet request errors grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean error count to highlight the most error-prone endpoints."
+}
+```
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request.errors{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {resource_name},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Errors by Endpoint (Top 10)",
+  unit: "errors",
+  type: "Bar",
+  description: "Sum of servlet request errors grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 10 endpoints ranked by mean error count to highlight endpoints with frequent failures."
+}
+```
+```
+{
+  expr: [
+    `sum(
+      trace:servlet:request.errors{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {resource_name}`
+  ],
+  name: "Servlet Request Errors by Endpoint (All)",
+  unit: "errors",
+  type: "Bar",
+  description: "Sum of servlet request errors grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays error counts for all endpoints without applying a ranking limit."
+}
+```
+![Dashboard](images/version35.png)
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request.errors{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ).as_rate() by {resource_name},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Error Rate by Endpoint (Top 5)",
+  unit: "errors/s",
+  type: "Areaplot",
+  description: "Servlet request error rate grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean error rate, highlighting endpoints with the highest frequency of failures."
+}
+```
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request.errors{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ).as_rate() by {resource_name},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Error Rate by Endpoint (Top 10)",
+  unit: "errors/s",
+  type: "Areaplot",
+  description: "Servlet request error rate grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 10 endpoints ranked by mean error rate to identify endpoints with elevated failure rates."
+}
+```
+```
+{
+  expr: [
+    `sum(
+      trace:servlet:request.errors{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ).as_rate() by {resource_name}`
+  ],
+  name: "Servlet Request Error Rate by Endpoint (All)",
+  unit: "errors/s",
+  type: "Areaplot",
+  description: "Servlet request error rate grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays error rates for all endpoints without applying a ranking limit."
+}
+```
+![Dashboard](images/version36.png)
+
+```
+{
+  expr: [
+    `top(
+      (
+        sum(
+          trace:servlet:request.errors{
+            env:dev,
+            service:recommendationservice,
+            span.kind:server
+          }
+        ).as_count()
+        /
+        sum(
+          trace:servlet:request.hits{
+            env:dev,
+            service:recommendationservice,
+            span.kind:server
+          }
+        ).as_count()
+      ) * 100 by {resource_name},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Error Percentage by Endpoint (Top 5)",
+  unit: "%",
+  type: "Lineplot",
+  description: "Percentage of servlet requests resulting in errors, calculated as errors divided by total hits and grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 5 endpoints ranked by mean error percentage."
+}
+```
+```
+{
+  expr: [
+    `top(
+      (
+        sum(
+          trace:servlet:request.errors{
+            env:dev,
+            service:recommendationservice,
+            span.kind:server
+          }
+        ).as_count()
+        /
+        sum(
+          trace:servlet:request.hits{
+            env:dev,
+            service:recommendationservice,
+            span.kind:server
+          }
+        ).as_count()
+      ) * 100 by {resource_name},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Error Percentage by Endpoint (Top 10)",
+  unit: "%",
+  type: "Lineplot",
+  description: "Percentage of servlet requests resulting in errors, calculated as errors divided by total hits and grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays the top 10 endpoints ranked by mean error percentage."
+}
+```
+```
+{
+  expr: [
+    `(
+      sum(
+        trace:servlet:request.errors{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ).as_count()
+      /
+      sum(
+        trace:servlet:request.hits{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ).as_count()
+    ) * 100 by {resource_name}`
+  ],
+  name: "Servlet Request Error Percentage by Endpoint (All)",
+  unit: "%",
+  type: "Lineplot",
+  description: "Percentage of servlet requests resulting in errors, calculated as errors divided by total hits and grouped by resource_name (endpoint) for the recommendationservice in the dev environment. Displays error percentages for all endpoints without applying a ranking limit."
+}
+```
+# Deployments
+
+![Dashboard](images/version37.png)
+
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request.hits{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ).as_count() by {version},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Hits by Version (Top 5)",
+  unit: "hits",
+  type: "Bar",
+  description: "Total servlet request hits grouped by version for the recommendationservice in the dev environment. Displays the top 5 versions ranked by mean request volume, helping compare traffic distribution across deployments."
+}
+```
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request.hits{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ).as_count() by {version},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Hits by Version (Top 10)",
+  unit: "hits",
+  type: "Bar",
+  description: "Total servlet request hits grouped by version for the recommendationservice in the dev environment. Displays the top 10 versions ranked by mean request volume, helping analyze traffic spread across multiple releases."
+}
+```
+```
+{
+  expr: [
+    `sum(
+      trace:servlet:request.hits{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ).as_count() by {version}`
+  ],
+  name: "Servlet Request Hits by Version (All)",
+  unit: "hits",
+  type: "Bar",
+  description: "Total servlet request hits grouped by version for the recommendationservice in the dev environment. Displays request volume for all versions without applying a ranking limit."
+}
+```
+![Dashboard](images/version38.png)
+
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request.hits{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ).as_rate() by {version},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Hit Rate by Version (Top 5)",
+  unit: "hits/s",
+  type: "Area",
+  description: "Servlet request hit rate grouped by version for the recommendationservice in the dev environment. Displays the top 5 versions ranked by mean hit rate, helping identify versions receiving the highest traffic."
+}
+```
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request.hits{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ).as_rate() by {version},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Hit Rate by Version (Top 10)",
+  unit: "hits/s",
+  type: "Area",
+  description: "Servlet request hit rate grouped by version for the recommendationservice in the dev environment. Displays the top 10 versions ranked by mean hit rate, helping analyze traffic distribution across multiple releases."
+}
+```
+```
+{
+  expr: [
+    `sum(
+      trace:servlet:request.hits{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ).as_rate() by {version}`
+  ],
+  name: "Servlet Request Hit Rate by Version (All)",
+  unit: "hits/s",
+  type: "Area",
+  description: "Servlet request hit rate grouped by version for the recommendationservice in the dev environment. Displays hit rate for all versions without applying any ranking limit."
+}
+```
+![Dashboard](images/version39.png)
+
+```
+{
+  expr: [
+    `top(
+      avg(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Average Servlet Request Latency by Version (Top 5)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Average servlet request latency grouped by version. Top 5 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `top(
+      avg(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Average Servlet Request Latency by Version (Top 10)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Average servlet request latency grouped by version. Top 10 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `avg(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {version}`
+  ],
+  name: "Average Servlet Request Latency by Version (All)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Average servlet request latency grouped by version for all versions."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p50(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P50 Servlet Request Latency by Version (Top 5)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P50 servlet request latency grouped by version. Top 5 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p50(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P50 Servlet Request Latency by Version (Top 10)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P50 servlet request latency grouped by version. Top 10 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `p50(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {version}`
+  ],
+  name: "P50 Servlet Request Latency by Version (All)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P50 servlet request latency grouped by version for all versions."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p75(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P75 Servlet Request Latency by Version (Top 5)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P75 servlet request latency grouped by version. Top 5 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p75(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P75 Servlet Request Latency by Version (Top 10)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P75 servlet request latency grouped by version. Top 10 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `p75(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {version}`
+  ],
+  name: "P75 Servlet Request Latency by Version (All)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P75 servlet request latency grouped by version for all versions."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p90(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P90 Servlet Request Latency by Version (Top 5)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P90 servlet request latency grouped by version. Top 5 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p90(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P90 Servlet Request Latency by Version (Top 10)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P90 servlet request latency grouped by version. Top 10 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `p90(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {version}`
+  ],
+  name: "P90 Servlet Request Latency by Version (All)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P90 servlet request latency grouped by version for all versions."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p95(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P95 Servlet Request Latency by Version (Top 5)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P95 servlet request latency grouped by version. Top 5 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p90(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P90 Servlet Request Latency by Version (Top 10)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P90 servlet request latency grouped by version. Top 10 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `p90(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {version}`
+  ],
+  name: "P90 Servlet Request Latency by Version (All)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P90 servlet request latency grouped by version for all versions."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p95(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P95 Servlet Request Latency by Version (Top 5)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P95 servlet request latency grouped by version. Top 5 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p95(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P95 Servlet Request Latency by Version (Top 10)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P95 servlet request latency grouped by version. Top 10 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `p95(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {version}`
+  ],
+  name: "P95 Servlet Request Latency by Version (All)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P95 servlet request latency grouped by version for all versions."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p99(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P99 Servlet Request Latency by Version (Top 5)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P99 servlet request latency grouped by version. Top 5 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p99(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P99 Servlet Request Latency by Version (Top 10)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P99 servlet request latency grouped by version. Top 10 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `p99(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {version}`
+  ],
+  name: "P99 Servlet Request Latency by Version (All)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P99 servlet request latency grouped by version for all versions."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p99.9(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P99.9 Servlet Request Latency by Version (Top 5)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P99.9 servlet request latency grouped by version. Top 5 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `top(
+      p99.9(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "P99.9 Servlet Request Latency by Version (Top 10)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P99.9 servlet request latency grouped by version. Top 10 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `p99.9(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {version}`
+  ],
+  name: "P99.9 Servlet Request Latency by Version (All)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "P99.9 servlet request latency grouped by version for all versions."
+}
+```
+```
+{
+  expr: [
+    `top(
+      max(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Max Servlet Request Latency by Version (Top 5)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Max servlet request latency grouped by version. Top 5 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `top(
+      max(
+        trace:servlet:request{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Max Servlet Request Latency by Version (Top 10)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Max servlet request latency grouped by version. Top 10 versions ranked by mean latency."
+}
+```
+```
+{
+  expr: [
+    `max(
+      trace:servlet:request{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {version}`
+  ],
+  name: "Max Servlet Request Latency by Version (All)",
+  unit: "ms",
+  type: "Lineplot",
+  description: "Max servlet request latency grouped by version for all versions."
+}
+```
+![Dashboard](images/version40.png)
+
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request.errors{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version}.as_count(),
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Errors by Version (Top 5)",
+  unit: "errors",
+  type: "Bar",
+  description: "Total servlet request errors grouped by version. Displays the top 5 versions ranked by mean error count."
+}
+```
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request.errors{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version}.as_count(),
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Errors by Version (Top 10)",
+  unit: "errors",
+  type: "Bar",
+  description: "Total servlet request errors grouped by version. Displays the top 10 versions ranked by mean error count."
+}
+```
+```
+{
+  expr: [
+    `sum(
+      trace:servlet:request.errors{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {version}.as_count()`
+  ],
+  name: "Servlet Request Errors by Version (All)",
+  unit: "errors",
+  type: "Bar",
+  description: "Total servlet request errors grouped by version for all versions."
+}
+```
+![Dashboard](images/version41.png)
+
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request.errors{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version}.as_rate(),
+      5,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Error Rate by Version (Top 5)",
+  unit: "errors/s",
+  type: "Area",
+  description: "Servlet request error rate grouped by version. Displays the top 5 versions ranked by mean error rate."
+}
+```
+```
+{
+  expr: [
+    `top(
+      sum(
+        trace:servlet:request.errors{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version}.as_rate(),
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "Servlet Request Error Rate by Version (Top 10)",
+  unit: "errors/s",
+  type: "Area",
+  description: "Servlet request error rate grouped by version. Displays the top 10 versions ranked by mean error rate."
+}
+```
+```
+{
+  expr: [
+    `sum(
+      trace:servlet:request.errors{
+        env:dev,
+        service:recommendationservice,
+        span.kind:server
+      }
+    ) by {version}.as_rate()`
+  ],
+  name: "Servlet Request Error Rate by Version (All)",
+  unit: "errors/s",
+  type: "Area",
+  description: "Servlet request error rate grouped by version for all versions."
+}
+```
+# Kubernetes metrics
+![Dashboard](images/version42.png)
+
+```
+{
+  expr: [
+    `(
+      sum(
+        trace:servlet:request.errors{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version}.as_rate()
+      /
+      sum(
+        trace:servlet:request.hits{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version}.as_rate()
+    ) * 100`
+  ],
+  name: "Servlet Request Error Percentage by Version (Top 5)",
+  unit: "percent",
+  type: "Lineplot",
+  description: "Servlet request error percentage (errors divided by hits) grouped by version. Displays the top 5 versions ranked by mean error percentage."
+}
+```
+```
+{
+  expr: [
+    `(
+      sum(
+        trace:servlet:request.errors{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version}.as_rate()
+      /
+      sum(
+        trace:servlet:request.hits{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version}.as_rate()
+    ) * 100`
+  ],
+  name: "Servlet Request Error Percentage by Version (Top 10)",
+  unit: "percent",
+  type: "Lineplot",
+  description: "Servlet request error percentage (errors divided by hits) grouped by version. Displays the top 10 versions ranked by mean error percentage."
+}
+```
+```
+{
+  expr: [
+    `(
+      sum(
+        trace:servlet:request.errors{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version}.as_rate()
+      /
+      sum(
+        trace:servlet:request.hits{
+          env:dev,
+          service:recommendationservice,
+          span.kind:server
+        }
+      ) by {version}.as_rate()
+    ) * 100`
+  ],
+  name: "Servlet Request Error Percentage by Version (All)",
+  unit: "percent",
+  type: "Lineplot",
+  description: "Servlet request error percentage (errors divided by hits) grouped by version for all versions."
+}
+```
+![Dashboard](images/version43.png)
+
+```
+{
+  expr: [
+    `sum(
+      kubernetes:containers:running{
+        env:dev,
+        service:recommendationservice
+      }
+    )`
+  ],
+  name: "Containers Running",
+  unit: "containers",
+  type: "counter",
+  description: "Total number of Kubernetes containers currently running for the recommendationservice in the dev environment."
+}
+```
+```
+{
+  expr: [
+    `sum(kubernetes:pods:running{env:dev,service:recommendationservice})`
+  ],
+  name: "Pods Running",
+  unit: " ",
+  type: "counter",
+  description: "Total number of Kubernetes pods currently running for the recommendationservice in the dev environment."
+}
+```
+```
+{
+  expr: [
+    `sum(kubernetes:cpu:usage:total{env:dev,service:recommendationservice})`
+  ],
+  name: "CPU used",
+  unit: "mcores",
+  type: "counter",
+  description: "Total cpu for the recommendationservice in the dev environment."
+}
+```
+```
+{
+  expr: [
+    `sum(kubernetes:memory:usage{env:dev,service:recommendationservice})`
+  ],
+  name: "Memory used",
+  unit: "MiB",
+  type: "counter",
+  description: "Total memory for the recommendationservice in the dev environment."
+}
+```
+```
+{
+  expr: [
+    `sum(kubernetes:network:rx_bytes{env:dev,service:recommendationservice})`
+  ],
+  name: "Network Bytes recieved",
+  unit: "",
+  type: "counter",
+  description: "Total network bytes  recieved for the recommendationservice in the dev environment."
+}
+```
+```
+{
+  expr: [
+    `sum(kubernetes:network:tx_bytes{env:dev,service:recommendationservice})`
+  ],
+  name: "Network Bytes sent",
+  unit: "",
+  type: "counter",
+  description: "Total network bytes for the sent recommendationservice in the dev environment."
+}
+```
+# Runtime metrics
+
