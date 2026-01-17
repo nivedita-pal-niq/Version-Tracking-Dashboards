@@ -2312,4 +2312,104 @@
 }
 ```
 # Runtime metrics
+## Non-Heap Usage (top 10)
+```
+{
+  expr: [
+    `top(
+      avg(jvm:non_heap_memory{
+        env:dev,
+        service:recommendationservice
+      })by {runtime-id},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "JVM Non-Heap Memory Usage (Top 10 Runtimes)",
+  unit: "MiB",
+  type: "Line",
+  description: "Average JVM non-heap memory usage grouped by runtime-id, showing the top 10 runtimes by mean value for the recommendationservice in the dev environment."
+}
+```
+## GC old gen size(10)
+```
+{
+  expr: [
+    `top(
+      avg(jvm:gc:old_gen_size{
+        env:dev,
+        service:recommendationservice
+      } )by {runtime-id},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "JVM GC Old Gen Size (Top 10 Runtimes)",
+  unit: "bytes",
+  type: "Line",
+  description: "Average JVM GC old generation size grouped by runtime-id, showing the top 10 runtimes by mean value for the recommendationservice in the dev environment."
+}
+```
+## GC New Gen Size (top 10)
+```
+{
+  expr: [
+    `top(
+      avg(jvm:gc:eden_size{
+        env:dev,
+        service:recommendationservice
+      }) by {runtime-id},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "JVM GC New Gen (Eden) Size (Top 10 Runtimes)",
+  unit: "bytes",
+  type: "Line",
+  description: "Average JVM GC Eden (new generation) size grouped by runtime-id, showing the top 10 runtimes by mean value for the recommendationservice in the dev environment."
+}
+```
+## Number of Classes Loaded (top 10)
+```
+{
+  expr: [
+    `top(
+      avg(jvm:loaded_classes{
+        env:dev,
+        service:recommendationservice
+      } )by {runtime-id},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "JVM Loaded Classes (Top 10 Runtimes)",
+  unit: "count",
+  type: "Area",
+  description: "Average number of JVM classes loaded grouped by runtime-id, showing the top 10 runtimes by mean value for the recommendationservice in the dev environment."
+}
+```
 
+## Thread Count (top 10)
+```
+{
+  expr: [
+    `top(
+      avg(jvm:thread_count{
+        env:dev,
+        service:recommendationservice
+      }) by {runtime-id},
+      10,
+      'mean',
+      'desc'
+    )`
+  ],
+  name: "JVM Thread Count (Top 10 Runtimes)",
+  unit: "threads",
+  type: "Line",
+  description: "Average JVM thread count grouped by runtime-id, showing the top 10 runtimes by mean value for the recommendationservice in the dev environment."
+}
+```
